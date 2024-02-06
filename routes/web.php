@@ -22,4 +22,7 @@ use App\Http\Controllers\AdminController;
 Route::get('/',[AdminController::class,'index'])->name('admin');
 Route::get('/employee',[EmployeeController::class,'index'])->name('employee');
 Route::get('/employee/formemployee',[EmployeeController::class,'create'])->name('add');
-Route::get('/employee/{id}/edit',[EmployeeController::class,'edit'])->name('editemployee');
+Route::post('/employee',[EmployeeController::class,'store']);
+// Route::get('/employee/{id}/edit',[EmployeeController::class,'edit'])->name('editemployee');
+
+

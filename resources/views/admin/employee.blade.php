@@ -50,6 +50,11 @@
                                         </thead>
                                         <tbody>
                                             @foreach ($employees as $employee)
+                                                @php
+                                                    $status = DB::table('statuses')
+                                                        ->where('id', $employee->status)
+                                                        ->first();
+                                                @endphp
                                                 <tr>
                                                     <td>{{ $employee->id }}</td>
                                                     <td>{{ $employee->code }}</td>
@@ -58,9 +63,9 @@
                                                     <td>{{ $employee->gender }}</td>
                                                     <td>{{ $employee->address }}</td>
                                                     <td>{{ $employee->created_at->format('d/m/Y H:i') }}</td>
-                                                    <td>{{ $employee->status }}</td>
+                                                    <td>{{ $status->name }}</td>
                                                     <td>
-                                                        <a href="{{ route('editemployee') }}" role="button"
+                                                        <a href="" role="button"
                                                             class="btn btn-sm btn-warning">แก้ไข</a>
                                                     </td>
                                                 </tr>

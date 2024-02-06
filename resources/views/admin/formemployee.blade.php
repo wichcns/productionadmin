@@ -19,7 +19,8 @@
         </div>
     </section>
     <section class="content">
-        <form action="">
+        <form action="{{ url('/employee')}}" method="POST">
+            @csrf
             <div class="container-fluid">
                 <div class="card card-default">
                     <div class="card-header">
@@ -30,17 +31,17 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="inputfname">ชื่อจริง</label>
-                                    <input type="text" class="form-control" id="fname" placeholder="First name"
-                                        required>
+                                    <input type="text" class="form-control" name="fname" id="fname" placeholder="First name"
+                                        >
                                 </div>
                                 <div class="form-group">
                                     <label for="inputcode">รหัสพนักงาน</label>
-                                    <input type="text" class="form-control" id="code" placeholder="รหัสพนักงาน"
-                                        required>
+                                    <input type="text" class="form-control" name="code" id="code" placeholder="รหัสพนักงาน"
+                                        >
                                 </div>
                                 <div class="form-group">
                                     <label for="gender">เพศ</label>
-                                    <select id="gender" class="form-control" style="width: 100%;">
+                                    <select name="gender" id="gender" class="form-control" style="width: 100%;">
                                         <option selected="">กรุณาเลือก...</option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
@@ -50,16 +51,16 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="inputlname">นามสกุล</label>
-                                    <input type="text" class="form-control" id="lname" placeholder="Last name"
-                                        required>
+                                    <input type="text" class="form-control" id="lname" name="lname" placeholder="Last name"
+                                    >
                                 </div>
                                 <div class="form-group">
                                     <label for="inputage">อายุ</label>
-                                    <input type="text" class="form-control" id="age" placeholder="Age" required>
+                                    <input type="text" class="form-control" name="age" id="age" placeholder="Age" >
                                 </div>
                                 <div class="form-group">
                                     <label for="inputphone">เบอร์โทรศัพท์</label>
-                                    <input type="number" class="form-control" id="phone" placeholder="Phone" required>
+                                    <input name="phone" type="number" class="form-control" id="phone" placeholder="Phone" >
                                 </div>
                             </div>
                         </div>
@@ -67,11 +68,11 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="address">ที่อยู่/บ้านเลขที่</label>
-                                    <input type="address" class="form-control" id="address" placeholder="Address">
+                                    <input name="address" type="address" class="form-control" id="address" placeholder="Address">
                                 </div>
                                 <div class="form-group">
                                     <label for="district">อำเภอ</label>
-                                    <select id="district" class="form-control">
+                                    <select name="district" id="district" class="form-control">
                                         <option selected="">กรุณาเลือก...</option>
                                         <option ></option>
                                         <option ></option>
@@ -81,7 +82,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="province">จังหวัด</label>
-                                    <select id="province" class="form-control">
+                                    <select name="province" id="province" class="form-control">
                                         <option selected="">กรุณาเลือก...</option>
                                         <option ></option>
                                         <option ></option>
@@ -89,16 +90,25 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="zipcode">รหัสไปรษณีย์</label>
-                                    <input type="zipcode" class="form-control" id="zipcode" placeholder="zipcode">
+                                    <input name="zipcode" type="zipcode" class="form-control" id="zipcode" placeholder="zipcode">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="subdistrict">ตำบล</label>
-                                    <select id="subdistrict" class="form-control">
+                                    <select name="subdistrict" id="subdistrict" class="form-control">
                                         <option selected="">กรุณาเลือก...</option>
                                         <option></option>
                                         <option></option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="status">ตำแหน่ง</label>
+                                    <select name="status" id="status" class="form-control">
+                                        <option selected="">กรุณาเลือก...</option>
+                                        <option value="1">SuperAdmin</option>
+                                        <option value="2">Admin</option>
+                                        <option value="3">Manager</option>
                                     </select>
                                 </div>
                             </div>
